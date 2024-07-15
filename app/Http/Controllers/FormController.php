@@ -29,8 +29,8 @@ class FormController extends Controller
         }
 
         $gender = match ($request->post('gender')) {
-            'male' => 'Чоловік',
-            'female' => 'Жінка',
+            'male' => 'Чоловіча',
+            'female' => 'Жіноча',
             default => null
         };
 
