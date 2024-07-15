@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('surname', 128);
             $table->string('name', 128);
             $table->integer('age');
-            $table->string('photo', 256)->nullable();
+            $table->string('gender', 255);
+            $table->string('photo', 255)->nullable();
             $table->timestamps();
         });
     }

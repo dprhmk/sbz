@@ -38,6 +38,14 @@ input[type="file"] {
     border-radius: 5px;
     box-sizing: border-box;
 }
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
 
 button {
     width: 100%;

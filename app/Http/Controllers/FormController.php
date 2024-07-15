@@ -16,6 +16,7 @@ class FormController extends Controller
             'surname' => 'required|string|max:255',
             'name' => 'required|string|max:255',
             'age' => 'required|integer|min:1',
+            'gender' => 'required|string|max:255',
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -27,10 +28,17 @@ class FormController extends Controller
             $photoPath = env('APP_URL').'/uploads/'.$photoName;
         }
 
+        $gender = match ($request->post('gender')) {
+            'male' => 'Чоловік',
+            'female' => 'Жінка',
+            default => null
+        };
+
         $member = Member::query()->create([
             'surname' => $request->post('surname'),
             'name' => $request->post('name'),
             'age' => $request->post('age'),
+            'gender' => $gender,
             'photo' => $photoPath ?? null,
         ]);
 

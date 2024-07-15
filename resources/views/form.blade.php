@@ -19,26 +19,37 @@
         <div class="alert alert-success">
             {{ session('id') }}
         </div>
+
+        <a href="{{ route('form.show') }}">Додати нового учасника</a>
     @endif
 
-    <form action="{{ route('form.submit') }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <h2>Форма</h2>
+    @if (!session('success'))
+        <form action="{{ route('form.submit') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <h2>Форма</h2>
 
-        <label for="surname">Прізвище</label>
-        <input type="text" id="surname" name="surname" required>
+            <label for="surname">Прізвище</label>
+            <input type="text" id="surname" name="surname" required>
 
-        <label for="name">Ім'я</label>
-        <input type="text" id="name" name="name" required>
+            <label for="name">Ім'я</label>
+            <input type="text" id="name" name="name" required>
 
-        <label for="age">Вік</label>
-        <input type="number" id="age" name="age" required>
+            <label for="age">Вік</label>
+            <input type="number" id="age" name="age" required>
 
-        <label for="photo">Завантажити фото</label>
-        <input type="file" id="photo" name="photo" accept="image/*" required>
+            <label for="gender">Стать</label>
+            <select id="gender" name="gender" required>
+                <option value="">Виберіть стать</option>
+                <option value="male">Чоловік</option>
+                <option value="female">Жінка</option>
+            </select>
 
-        <button type="submit">Відправити</button>
-    </form>
+            <label for="photo">Завантажити фото</label>
+            <input type="file" id="photo" name="photo" accept="image/*" required>
+
+            <button type="submit">Відправити</button>
+        </form>
+    @endif
 </div>
 </body>
 </html>
